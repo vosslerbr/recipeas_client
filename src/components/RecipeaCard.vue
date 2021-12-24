@@ -1,15 +1,10 @@
 <template>
-  <div>
+  <div class="recipea-card">
     <h2>{{ recipea.title }}</h2>
-    <a v-bind:href="recipea.link">{{ recipea.link }}</a>
-    <h3>Ingredients</h3>
-    <ul>
-      <li v-for="(ingredient, index) in recipea.ingredients" :key="index">{{ ingredient }}</li>
-    </ul>
-    <h3>Steps</h3>
-    <ol>
-      <li v-for="(step, index) in recipea.steps" :key="index">{{ step }}</li>
-    </ol>
+    <p v-if="recipea.description">{{ recipea.description }}</p>
+    <h3>Ingredients: {{ recipea.ingredients.length }}</h3>
+    <h3>Steps: {{ recipea.steps.length }}</h3>
+    <a v-bind:href="recipea.link" class="external-link">{{ recipea.link }}</a>
   </div>
 </template>
 
@@ -21,3 +16,50 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.recipea-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background);
+  padding: 20px;
+  grid-column: span 4;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 850px) {
+  .recipea-card {
+    grid-column: span 6;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .recipea-card {
+    grid-column: span 12;
+  }
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+h3:last-of-type {
+  margin-bottom: 20px;
+}
+
+.external-link {
+  opacity: 0.65;
+  margin-top: auto;
+}
+</style>

@@ -1,5 +1,7 @@
 <template>
-  <RecipeaCard v-for="(recipea, index) in recipeas" :key="index" :recipea="recipea" />
+  <div class="home-page">
+    <RecipeaCard v-for="(recipea, index) in recipeas" :key="index" :recipea="recipea" />
+  </div>
 </template>
 
 <script>
@@ -28,4 +30,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.home-page {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+</style>

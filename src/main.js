@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import './assets/css/reset.css';
+import './assets/css/global.css';
 
 //? IMPORT PAGE COMPONENTS
 import Home from './pages/Home.vue';
