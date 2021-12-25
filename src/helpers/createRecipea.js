@@ -1,11 +1,12 @@
 import axios from 'axios';
+import config from '../../config.json';
+
+const environment = config.environment;
+const url = config[`${environment}Server`];
 
 const createRecipea = async (recipeaData) => {
   try {
-    const response = await axios.post(
-      'https://recipeas-server.herokuapp.com/recipeas',
-      recipeaData
-    );
+    const response = await axios.post(`${url}/recipeas`, recipeaData);
 
     console.log(response);
     return response.data;

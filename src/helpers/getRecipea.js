@@ -4,11 +4,11 @@ import config from '../../config.json';
 const environment = config.environment;
 const url = config[`${environment}Server`];
 
-const getAllRecipes = async () => {
+const getAllRecipes = async (id) => {
   try {
-    const records = await axios.get(`${url}/recipeas`);
+    const record = await axios.get(`${url}/recipeas/${id}`);
 
-    return records.data;
+    return record.data;
   } catch (err) {
     console.error(err);
   }

@@ -1,6 +1,6 @@
 <template>
   <nav id="nav">
-    <h1>Recipeas</h1>
+    <router-link to="/"><h1>Recipeas</h1></router-link>
     <ul>
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/create">Create</router-link></li>

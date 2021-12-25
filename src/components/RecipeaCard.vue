@@ -1,10 +1,14 @@
 <template>
   <div class="recipea-card">
-    <h2>{{ recipea.title }}</h2>
-    <p v-if="recipea.description">{{ recipea.description }}</p>
-    <h3>Ingredients: {{ recipea.ingredients.length }}</h3>
-    <h3>Steps: {{ recipea.steps.length }}</h3>
-    <a v-bind:href="recipea.link" class="external-link">{{ recipea.link }}</a>
+    <router-link :to="{ path: '/recipea/' + recipea._id }">
+      <h2>
+        {{ recipea.title }}
+      </h2>
+      <p v-if="recipea.description">{{ recipea.description }}</p>
+      <h3>Ingredients: {{ recipea.ingredients.length }}</h3>
+      <h3>Steps: {{ recipea.steps.length }}</h3>
+      <a v-bind:href="recipea.link" class="external-link">{{ recipea.link }}</a>
+    </router-link>
   </div>
 </template>
 

@@ -7,12 +7,14 @@ import './assets/css/global.css';
 //? IMPORT PAGE COMPONENTS
 import Home from './pages/Home.vue';
 import Create from './pages/CreateRecipea.vue';
+import RecipeaDetail from './pages/RecipeaDetail.vue';
 import FocusDirective from './directives/FocusDirective';
 
 //? DEFINE ROUTES, EACH PAGE COMPONENT GETS ONE
 const routes = [
   { path: '/', component: Home },
   { path: '/create', component: Create },
+  { path: '/recipea/:id', component: RecipeaDetail },
 ];
 
 //? SET UP THE ROUTER
