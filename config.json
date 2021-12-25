@@ -1,5 +1,5 @@
 {
-  "environment": "dev",
+  "environment": "prod",
   "prodServer": "https://recipeas-server.herokuapp.com",
   "devServer": "http://localhost:3000"
 }
