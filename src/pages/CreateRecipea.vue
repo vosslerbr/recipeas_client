@@ -33,11 +33,23 @@
         v-model="currentIngredient"
         @keydown.enter.prevent
         @keyup.enter.prevent="addIngredient"
+        @change="addIngredient"
       />
       <ul v-if="ingredients.length">
-        <li v-for="(ingredient, index) of ingredients" :key="index">{{ ingredient }}</li>
+        <li v-for="(ingredient, index) of ingredients" :key="index" @click="editIngredient(index)">
+          {{ ingredient }}
+        </li>
       </ul>
       <p v-else>No ingredients added yet</p>
+      <div v-if="ingredientEditing">
+        <input
+          type="text"
+          v-focus
+          v-model="ingredientEditing.ingredient"
+          @change.prevent="handleIngredientEditSave(ingredientEditing.index)"
+          @blur.prevent="handleIngredientEditSave(ingredientEditing.index)"
+        />
+      </div>
 
       <h3>Steps</h3>
       <input
@@ -49,11 +61,13 @@
         v-model="currentStep"
         @keydown.enter.prevent
         @keyup.enter.prevent="addStep"
+        @change="addStep"
       />
       <ol v-if="steps.length">
         <li v-for="(step, index) of steps" :key="index">{{ step }}</li>
       </ol>
       <p v-else>No steps added yet</p>
+
       <label for="recipea-link">Link</label>
       <input
         type="url"
@@ -62,6 +76,15 @@
         name="recipea-link"
         class="form-input"
         v-model="link"
+      />
+      <label for="recipea-passcode">Passcode</label>
+      <input
+        type="text"
+        placeholder="Passcode"
+        id="recipea-passcode"
+        name="recipea-passcode"
+        class="form-input"
+        v-model="passcode"
       />
       <button type="submit">Create Recipea</button>
     </form>
@@ -80,15 +103,27 @@ export default {
       description: '',
       link: '',
       currentIngredient: '',
+      ingredientEditing: null,
       ingredients: [],
       currentStep: '',
       steps: [],
+      passcode: '',
     };
   },
   methods: {
     addIngredient() {
       this.ingredients.push(this.currentIngredient);
       this.currentIngredient = '';
+    },
+    editIngredient(index) {
+      console.log(index);
+      this.ingredientEditing = {};
+      this.ingredientEditing.ingredient = this.ingredients[index];
+      this.ingredientEditing.index = index;
+    },
+    handleIngredientEditSave(index) {
+      this.ingredients[index] = this.ingredientEditing.ingredient;
+      this.ingredientEditing = null;
     },
     addStep() {
       this.steps.push(this.currentStep);
@@ -102,6 +137,7 @@ export default {
         link: this.link,
         ingredients: this.ingredients,
         steps: this.steps,
+        passcode: this.passcode,
       };
 
       // place in body of POST request
@@ -115,6 +151,7 @@ export default {
       this.ingredients = [];
       this.currentStep = '';
       this.steps = [];
+      this.passcode = '';
       console.log(response);
     },
   },

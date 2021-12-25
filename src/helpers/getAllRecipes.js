@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getAllRecipes = async () => {
   try {
-    const records = await axios.get('http://localhost:3000/recipeas');
+    const records = await axios.get('https://recipeas-server.herokuapp.com/recipeas');
 
     return records.data;
   } catch (err) {

@@ -7,6 +7,7 @@ import './assets/css/global.css';
 //? IMPORT PAGE COMPONENTS
 import Home from './pages/Home.vue';
 import Create from './pages/CreateRecipea.vue';
+import FocusDirective from './directives/FocusDirective';
 
 //? DEFINE ROUTES, EACH PAGE COMPONENT GETS ONE
 const routes = [
@@ -21,4 +22,4 @@ const router = createRouter({
   routes, // short for `routes: routes`
 });
 
-createApp(App).use(router).mount('#app');
+createApp(App).use(router).directive('focus', FocusDirective).mount('#app');
