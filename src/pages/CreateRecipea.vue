@@ -205,6 +205,7 @@ textarea {
   padding: 10px;
   border: none;
   border-radius: 5px;
+  border: 1.5px solid var(--main-color);
 }
 
 .margin-clear {
@@ -213,5 +214,15 @@ textarea {
 
 label {
   margin-bottom: 10px;
+}
+
+button {
+  background-color: var(--main-color);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  color: var(--background);
+  font-size: 15px;
+  max-width: fit-content;
 }
 </style>

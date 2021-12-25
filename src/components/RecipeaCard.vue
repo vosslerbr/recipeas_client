@@ -22,6 +22,7 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: var(--card-background);
+  box-shadow: 5px 7px 20px 2px rgba(0, 0, 0, 0.08);
   padding: 20px;
   grid-column: span 4;
   border-radius: 5px;
