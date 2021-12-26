@@ -1,3 +1,10 @@
+/**
+ * @description creates a new recipea via a POST request
+ *
+ * @param recipeaData Object. The data from the Create Recipea form
+ * @returns response or error
+ */
+
 import axios from 'axios';
 import config from '../../config.json';
 

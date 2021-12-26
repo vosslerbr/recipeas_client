@@ -1,3 +1,10 @@
+/**
+ * @description Fetches A SINGLE recipea via a GET request
+ *
+ * @param id String. The MongoDB id for a record
+ * @returns response.data or error
+ */
+
 import axios from 'axios';
 import config from '../../config.json';
 

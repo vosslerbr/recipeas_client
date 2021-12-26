@@ -1,3 +1,9 @@
+/**
+ * @description Fetches ALL recipeas via a GET request
+ *
+ * @returns response.data or error
+ */
+
 import axios from 'axios';
 import config from '../../config.json';
 
