@@ -4,7 +4,7 @@
 
 export default {
   name: 'focus',
-  mounted(el) {
+  mounted(el: HTMLElement) {
     el.focus();
   },
 };

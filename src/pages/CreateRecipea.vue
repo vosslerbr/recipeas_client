@@ -166,12 +166,12 @@ export default {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 2rem;
 }
 
 ul,
 ol {
-  padding: 0px 20px;
+  padding: 0px 1.5rem;
 }
 
 ol {
@@ -185,12 +185,12 @@ ul {
 p,
 ul,
 ol {
-  margin: 10px 0px 30px 0px;
+  margin: 0.5rem 0px 2rem 0px;
 }
 
 h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 form {
@@ -201,11 +201,12 @@ form {
 input,
 textarea {
   font-family: var(--main-font);
-  margin-bottom: 30px;
-  padding: 10px;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 5px;
   border: 1.5px solid var(--main-color);
+  font-size: var(--main-font-size);
 }
 
 .margin-clear {
@@ -213,16 +214,16 @@ textarea {
 }
 
 label {
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
 button {
   background-color: var(--main-color);
   border-radius: 5px;
   border: none;
-  padding: 10px 20px;
+  padding: 0.5rem 1.5rem;
   color: var(--background);
-  font-size: 15px;
+  font-size: 1rem;
   max-width: fit-content;
 }
 </style>

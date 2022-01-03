@@ -5,16 +5,18 @@
  */
 
 import axios from 'axios';
-import config from '../../config.json';
+import config from './config';
 
 const environment = config.environment;
 const url = config[`${environment}Server`];
 
 const getAllRecipes = async () => {
   try {
-    const records = await axios.get(`${url}/recipeas`);
+    const records: any = await axios.get(`${url}/recipeas`);
 
-    return records.data;
+    const data: any[] = records.data;
+
+    return data;
   } catch (err) {
     console.error(err);
   }

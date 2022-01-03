@@ -6,19 +6,21 @@
  */
 
 import axios from 'axios';
-import config from '../../config.json';
+import config from './config';
 
 const environment = config.environment;
 const url = config[`${environment}Server`];
 
-const getAllRecipes = async (id) => {
+const getRecipea = async (id: string) => {
   try {
-    const record = await axios.get(`${url}/recipeas/${id}`);
+    const record: any = await axios.get(`${url}/recipeas/${id}`);
 
-    return record.data;
+    const data: any = record.data;
+
+    return data;
   } catch (err) {
     console.error(err);
   }
 };
 
-export default getAllRecipes;
+export default getRecipea;

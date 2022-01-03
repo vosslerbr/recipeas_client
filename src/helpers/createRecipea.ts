@@ -6,12 +6,21 @@
  */
 
 import axios from 'axios';
-import config from '../../config.json';
+import config from './config';
 
 const environment = config.environment;
 const url = config[`${environment}Server`];
 
-const createRecipea = async (recipeaData) => {
+interface Recipea {
+  title: string;
+  description: string;
+  link: string;
+  ingredients: string[];
+  steps: string[];
+  passcode: string;
+}
+
+const createRecipea = async (recipeaData: Recipea) => {
   try {
     const response = await axios.post(`${url}/recipeas`, recipeaData);
 
