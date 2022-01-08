@@ -1,39 +1,47 @@
 <template>
   <div class="home-page">
-    <p v-if="loading">Loading Recipeas...</p>
-    <p v-else-if="error">An error occurred. Please refresh page to try again.</p>
-    <p v-else-if="(!loading && !error && !recipeas) || !recipeas.length">No Recipeas found.</p>
-    <RecipeaCard v-else v-for="(recipea, index) in recipeas" :key="index" :recipea="recipea" />
+    <p v-if="store.loading">Loading Recipeas...</p>
+    <p v-else-if="store.error">An error occurred. Please refresh page to try again.</p>
+    <p v-else-if="(!store.loading && !store.error && !store.recipeas) || !store.recipeas.length">
+      No Recipeas found.
+    </p>
+    <RecipeaCard
+      v-else
+      v-for="(recipea, index) in store.recipeas"
+      :key="index"
+      :recipea="recipea"
+    />
   </div>
 </template>
 
 <script>
+import { useStore } from '@/store';
 import RecipeaCard from '../components/RecipeaCard.vue';
 import getAllRecipeas from '../helpers/getAllRecipes';
 
 export default {
   name: 'Home',
+  setup() {
+    const store = useStore();
+
+    return {
+      store,
+    };
+  },
   components: {
     RecipeaCard,
   },
-  data() {
-    return {
-      recipeas: null,
-      loading: false,
-      error: false,
-    };
-  },
   async mounted() {
     try {
-      this.loading = true;
+      this.store.loading = true;
       const recipeas = await getAllRecipeas();
 
-      this.recipeas = recipeas;
-      this.loading = false;
+      this.store.recipeas = recipeas;
+      this.store.loading = false;
     } catch (err) {
       console.error(err);
-      this.error = true;
-      this.loading = false;
+      this.store.error = true;
+      this.store.loading = false;
     }
   },
 };

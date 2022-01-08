@@ -9,6 +9,7 @@ import Home from './pages/Home.vue';
 import Create from './pages/CreateRecipea.vue';
 import RecipeaDetail from './pages/RecipeaDetail.vue';
 import FocusDirective from './directives/FocusDirective';
+import { createPinia } from 'pinia';
 
 //? DEFINE ROUTES, EACH PAGE COMPONENT GETS ONE
 const routes = [
@@ -24,4 +25,4 @@ const router = createRouter({
   routes, // short for `routes: routes`
 });
 
-createApp(App).use(router).directive('focus', FocusDirective).mount('#app');
+createApp(App).use(createPinia()).use(router).directive('focus', FocusDirective).mount('#app');
