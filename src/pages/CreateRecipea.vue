@@ -41,7 +41,7 @@
         </li>
       </ul>
       <p v-else>No ingredients added yet</p>
-      <div v-if="ingredientEditing">
+      <div v-if="ingredientEditing" class="editModal">
         <input
           type="text"
           v-focus
@@ -64,9 +64,20 @@
         @change="addStep"
       />
       <ol v-if="steps.length">
-        <li v-for="(step, index) of steps" :key="index">{{ step }}</li>
+        <li v-for="(step, index) of steps" :key="index" @click="editStep(index)">
+          {{ step }}
+        </li>
       </ol>
       <p v-else>No steps added yet</p>
+      <div v-if="stepEditing" class="editModal">
+        <input
+          type="text"
+          v-focus
+          v-model="stepEditing.step"
+          @change.prevent="handleStepEditSave(stepEditing.index)"
+          @blur.prevent="handleStepEditSave(stepEditing.index)"
+        />
+      </div>
 
       <label for="recipea-link">Link</label>
       <input
@@ -106,6 +117,7 @@ export default {
       ingredientEditing: null,
       ingredients: [],
       currentStep: '',
+      stepEditing: null,
       steps: [],
       passcode: '',
     };
@@ -128,6 +140,16 @@ export default {
     addStep() {
       this.steps.push(this.currentStep);
       this.currentStep = '';
+    },
+    editStep(index) {
+      console.log(index);
+      this.stepEditing = {};
+      this.stepEditing.step = this.steps[index];
+      this.stepEditing.index = index;
+    },
+    handleStepEditSave(index) {
+      this.steps[index] = this.stepEditing.step;
+      this.stepEditing = null;
     },
     async onSubmit() {
       // get all the state data
