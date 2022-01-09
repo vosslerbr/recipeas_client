@@ -10,7 +10,9 @@
     </router-link>
     <a v-bind:href="recipea.link" class="external-link" target="_blank">{{ recipea.link }}</a>
     <div id="buttons">
-      <router-link :to="{ path: '/recipea/edit/' + recipea._id }">Edit</router-link>
+      <router-link :to="{ path: '/recipea/edit/' + recipea._id }" custom v-slot="{ navigate }"
+        ><button @click="navigate" id="edit">Edit</button></router-link
+      >
       <button @click="deleteRec" id="delete">Delete</button>
     </div>
   </div>
@@ -118,8 +120,7 @@ h3:last-of-type {
   margin-top: 1.5rem;
 }
 
-button,
-#buttons a {
+button {
   width: calc(50% - 0.75rem);
   font-family: var(--main-font);
   font-size: 1rem;
@@ -130,12 +131,6 @@ button,
   color: var(--background);
   font-weight: bolder;
   cursor: pointer;
-}
-
-#buttons a {
-  text-align: center;
-  vertical-align: middle;
-  padding: 9px 0px 7px 0px;
 }
 
 button:hover,
