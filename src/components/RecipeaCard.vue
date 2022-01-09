@@ -133,8 +133,7 @@ button {
   cursor: pointer;
 }
 
-button:hover,
-#buttons a:hover {
+button:hover {
   box-shadow: 5px 7px 1.5rem 2px rgba(0, 0, 0, 0.08);
   transform: scale(1.02);
 }
