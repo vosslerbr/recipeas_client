@@ -7,8 +7,8 @@
       <p v-if="recipea.description">{{ recipea.description }}</p>
       <h3>Ingredients: {{ recipea.ingredients.length }}</h3>
       <h3>Steps: {{ recipea.steps.length }}</h3>
-      <a v-bind:href="recipea.link" class="external-link">{{ recipea.link }}</a>
     </router-link>
+    <a v-bind:href="recipea.link" class="external-link" target="_blank">{{ recipea.link }}</a>
     <div id="buttons">
       <router-link :to="{ path: '/recipea/edit/' + recipea._id }">Edit</router-link>
       <button @click="deleteRec" id="delete">Delete</button>
@@ -21,6 +21,7 @@ import { useStore } from '@/store';
 import deleteRecipea from '../helpers/deleteRecipea';
 
 export default {
+  name: 'Recipea Card',
   setup() {
     const store = useStore();
 
@@ -28,7 +29,6 @@ export default {
       store,
     };
   },
-  name: 'Recipea Card',
   props: {
     recipea: Object,
   },
@@ -64,14 +64,14 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: var(--card-background);
-  box-shadow: 5px 7px 20px 2px rgba(0, 0, 0, 0.08);
-  padding: 20px;
+  box-shadow: 5px 7px 1.5rem 2px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
   grid-column: span 4;
   border-radius: 5px;
 }
 
 .recipea-card:hover {
-  box-shadow: 5px 7px 20px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 5px 7px 1.5rem 2px rgba(0, 0, 0, 0.12);
 }
 
 @media screen and (max-width: 850px) {
@@ -87,41 +87,43 @@ export default {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
 p {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 h3:last-of-type {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .external-link {
   opacity: 0.65;
   margin-top: auto;
+  z-index: 2;
 }
 
 #buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 1.5rem;
 }
 
 button,
 #buttons a {
-  width: calc(50% - 8px);
+  width: calc(50% - 0.75rem);
   font-family: var(--main-font);
-  font-size: 16px;
-  padding: 8px;
+  font-size: 1rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 5px;
   background: var(--main-color);
@@ -138,7 +140,7 @@ button,
 
 button:hover,
 #buttons a:hover {
-  box-shadow: 5px 7px 20px 2px rgba(0, 0, 0, 0.08);
+  box-shadow: 5px 7px 1.5rem 2px rgba(0, 0, 0, 0.08);
   transform: scale(1.02);
 }
 

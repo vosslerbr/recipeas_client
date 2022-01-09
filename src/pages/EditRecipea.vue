@@ -234,6 +234,10 @@ ul {
   list-style-type: disc;
 }
 
+li {
+  padding-bottom: 0.5rem;
+}
+
 p,
 ul,
 ol {

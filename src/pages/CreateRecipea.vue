@@ -107,7 +107,6 @@ import createRecipea from '../helpers/createRecipea';
 
 export default {
   name: 'Create',
-  components: {},
   data() {
     return {
       title: '',
@@ -202,6 +201,10 @@ ol {
 
 ul {
   list-style-type: disc;
+}
+
+li {
+  padding-bottom: 0.5rem;
 }
 
 p,
