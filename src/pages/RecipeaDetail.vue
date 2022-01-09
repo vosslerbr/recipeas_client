@@ -21,6 +21,10 @@
         <li v-for="(step, index) of recipea.steps" :key="index">{{ step }}</li>
       </ol>
 
+      <p class="recipea-link">
+        <a v-bind:href="recipea.link" class="external-link" target="_blank">{{ recipea.link }}</a>
+      </p>
+
       <p class="recipea-created">Created: {{ createdDate }}</p>
     </template>
   </div>
@@ -30,6 +34,7 @@
 import getRecipea from '../helpers/getRecipea';
 
 export default {
+  name: 'Detail',
   data() {
     return {
       loading: false,
@@ -54,10 +59,7 @@ export default {
     }
   },
   computed: {
-    // a computed getter
     createdDate() {
-      // `this` points to the vm instance
-
       const date = new Date(this.recipea.created).toString();
       const formattedDate = date.substring(4, 15);
 
@@ -69,13 +71,13 @@ export default {
 
 <style scoped>
 h2 {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -95,20 +97,24 @@ li:not(:last-of-type) {
 }
 
 li:last-of-type {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .recipea-description {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .recipea-created {
   opacity: 0.75;
 }
 
+.recipea-link {
+  margin-bottom: 1.25rem;
+}
+
 .missing-info {
   opacity: 0.75;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   font-style: italic;
 }
 </style>

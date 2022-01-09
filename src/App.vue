@@ -15,29 +15,28 @@
 <script>
 export default {
   name: 'App',
-  components: {},
 };
 </script>
 
 <style scoped>
 #nav {
-  margin-bottom: 60px;
+  margin-bottom: 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px;
+  padding: 1.25rem 0px;
   position: sticky;
   top: 0;
   background-color: var(--background);
 }
 
 router-view {
-  margin-bottom: 60px;
+  margin-bottom: 64px;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -47,7 +46,7 @@ ul {
 }
 
 li {
-  margin-left: 20px;
+  margin-left: 1.25rem;
 }
 
 footer {
@@ -56,6 +55,6 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 20px 0px;
+  padding: 1.25rem 0px;
 }
 </style>

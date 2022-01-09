@@ -51,7 +51,7 @@ export default {
 .home-page {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 p {

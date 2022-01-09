@@ -25,6 +25,10 @@ Recipeas currently supports the following features:
 
 There are a few more features I'd like to add/improve:
 
+- Tags support
+  - So users can filter the homepage by recipea type (like dairy-free, vegan, vegetarian...)
+- Sorting support
+  - So users can sort by name, # of steps, # of ingredients
 - Image support
   - I'd like users to be able to upload 1-6 images per Recipea. The image would then be used as a thumbnail on the homepage, and in a gallery on the Recipea details page.
 - Improve the steps/ingredient editors
