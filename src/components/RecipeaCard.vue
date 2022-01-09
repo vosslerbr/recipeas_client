@@ -10,7 +10,7 @@
       <a v-bind:href="recipea.link" class="external-link">{{ recipea.link }}</a>
     </router-link>
     <div id="buttons">
-      <button id="edit">Edit</button>
+      <router-link :to="{ path: '/recipea/edit/' + recipea._id }">Edit</router-link>
       <button @click="deleteRec" id="delete">Delete</button>
     </div>
   </div>
@@ -116,7 +116,8 @@ h3:last-of-type {
   justify-content: space-between;
 }
 
-button {
+button,
+#buttons a {
   width: calc(50% - 8px);
   font-family: var(--main-font);
   font-size: 16px;
@@ -129,7 +130,14 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+#buttons a {
+  text-align: center;
+  vertical-align: middle;
+  padding: 9px 0px 7px 0px;
+}
+
+button:hover,
+#buttons a:hover {
   box-shadow: 5px 7px 20px 2px rgba(0, 0, 0, 0.08);
   transform: scale(1.02);
 }

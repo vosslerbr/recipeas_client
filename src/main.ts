@@ -7,6 +7,7 @@ import './assets/css/global.css';
 //? IMPORT PAGE COMPONENTS
 import Home from './pages/Home.vue';
 import Create from './pages/CreateRecipea.vue';
+import Edit from './pages/EditRecipea.vue';
 import RecipeaDetail from './pages/RecipeaDetail.vue';
 import FocusDirective from './directives/FocusDirective';
 import { createPinia } from 'pinia';
@@ -16,6 +17,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/create', component: Create },
   { path: '/recipea/:id', component: RecipeaDetail },
+  { path: '/recipea/edit/:id', component: Edit },
 ];
 
 //? SET UP THE ROUTER

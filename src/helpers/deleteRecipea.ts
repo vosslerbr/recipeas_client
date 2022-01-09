@@ -1,8 +1,9 @@
 /**
- * @description Fetches A SINGLE recipea via a GET request
+ * @description Deletes a SINGLE recipea via a DELETE request
  *
  * @param id String. The MongoDB id for a record
- * @returns response.data or error
+ * @param data Object. Just the passcode required for this action
+ * @returns response
  */
 
 import axios from 'axios';
