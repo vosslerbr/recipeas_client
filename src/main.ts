@@ -14,10 +14,10 @@ import { createPinia } from 'pinia';
 
 //? DEFINE ROUTES, EACH PAGE COMPONENT GETS ONE
 const routes = [
-  { path: '/', component: Home },
-  { path: '/create', component: Create },
-  { path: '/recipea/:id', component: RecipeaDetail },
-  { path: '/recipea/edit/:id', component: Edit },
+  { path: '/', component: Home, meta: { title: 'Recipeas | Home' } },
+  { path: '/create', component: Create, meta: { title: 'Recipeas | Create' } },
+  { path: '/recipea/:id', component: RecipeaDetail, meta: { title: 'Recipeas | Detail' } },
+  { path: '/recipea/edit/:id', component: Edit, meta: { title: 'Recipeas | Edit' } },
 ];
 
 //? SET UP THE ROUTER
@@ -25,6 +25,15 @@ const router = createRouter({
   // Using recommended default history setup
   history: createWebHistory(),
   routes, // short for `routes: routes`
+});
+
+// this will update the document <title> for the routes
+router.afterEach((to) => {
+  if (to.meta.title) {
+    document.title = `${to.meta.title}`;
+  } else {
+    document.title = 'Recipeas';
+  }
 });
 
 createApp(App).use(createPinia()).use(router).directive('focus', FocusDirective).mount('#app');
